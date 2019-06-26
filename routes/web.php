@@ -15,6 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/usuarios',function(){
+    return view('vista_usuarios');
+});
+
+Route::get('/productos',function(){
+
+    return view('productos');
+
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/usuarios','usuariocontrolador@mostrarusuarios')->name('usuarios');
+
+Route::post('/borrarusuario','usuariocontrolador@borrarusuario');
+
+Route::get('/productos','productoscontrolador@mostrarproductos')->name('productos');
+
+Route::post('/modificarProducto','productoscontrolador@updateProducto');
