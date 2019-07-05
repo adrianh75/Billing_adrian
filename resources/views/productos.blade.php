@@ -12,9 +12,10 @@
         <p> Detalle: </p>
         <p>{{ $productos->detalle_producto }}</p>
         <label for="productosUpdate">Informacion a modificar</label>
-        <input type="text" class='productoUpdate'>
+        <input type="text" id='productoUpdate'>
         <br>
-        <button class='btnProductosModificar' productoInfoId="{{$productos->id}}">Modificar</button>
+        <button id='btnProductosModificar' productoInfoId="{{$productos->id}}">Modificar</button>
+        <button id='btnProductosEliminar' productoInfoId="{{$productos->id}}">Eliminar</button>
         <br>
         
         </div>

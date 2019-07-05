@@ -10,29 +10,30 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/usuarios',function(){
-    return view('vista_usuarios');
+Route::get('/home',function(){
+    return view('home');
 });
 
-Route::get('/productos',function(){
+//Rutas de servicio de Usuarios
 
-    return view('productos');
-
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/usuarios','usuariocontrolador@mostrarusuarios')->name('usuarios');
+Route::get('/usuarios','usuariocontrolador@mostrarusuarios')->name('vista_usuarios');
 
 Route::post('/borrarusuario','usuariocontrolador@borrarusuario');
 
+Route::post('/modificarusuario','usuariocontrolador@updateUsuario');
+
+//Rutas de Servicio de los Productos
 Route::get('/productos','productoscontrolador@mostrarproductos')->name('productos');
 
 Route::post('/modificarProducto','productoscontrolador@updateProducto');
+
+//Rutas de Servicio Facturas
+Route::get('/facturas','facturascontrolador@mostrarfacturas')->name('facturas');
+
+Route::post('/modificarFactura','facturascontrolador@updateFactura');

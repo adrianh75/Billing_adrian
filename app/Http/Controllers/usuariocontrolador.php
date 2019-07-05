@@ -18,4 +18,12 @@ class usuariocontrolador extends Controller
     
     return 200;
   }
+
+  public function updateUsuario(Request $request){
+
+    DB::table('users')
+        ->where('id', $request->id)
+        ->update(['name' => $request->text]);
+    return 200;
+}
 }

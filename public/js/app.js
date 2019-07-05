@@ -36795,11 +36795,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //Elimina
     }
   };
   borrarusuario.init();
-})(); //Modificar Detalle
+})(); //Modificar Usuario
 
 
 (function () {
-  var ModificarProducto = {
+  var ModificarUsuario = {
     init: function init() {
       this.addEvents();
     },
@@ -36807,15 +36807,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //Elimina
       document.addEventListener('click', function (event) {
         var target = event.target;
 
-        if (target.matches('.btnProductosModificar')) {
-          var idProductoModificar = target.getAttribute('productoinfoid');
-          var txtInpDetalleProducto = this.cacheElements.$inpName.val();
+        if (target.matches('#btnModificarUsuario')) {
+          var idModificarUsuario = target.getAttribute('UsuarioId');
+          var inpModUsuario = this.cacheElements.$inpName.val();
           $.ajax({
-            url: '/modificarProducto',
+            url: '/modificarusuario',
             method: "POST",
             data: {
-              id: idProductoModificar,
-              text: txtInpDetalleProducto
+              id: idModificarUsuario,
+              text: inpModUsuario
             },
             success: function success(response) {
               console.log('response', response);
@@ -36831,10 +36831,165 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //Elimina
       }.bind(this));
     },
     cacheElements: {
-      $inpName: $('.productoUpdate')
+      $inpName: $('#inpModUsuarioNombre')
+    }
+  };
+  ModificarUsuario.init();
+})(); //Eliminar Producto
+
+
+(function () {
+  var EliminarProducto = {
+    init: function init() {
+      this.addEvents();
+    },
+    addEvents: function addEvents() {
+      document.addEventListener('click', function (event) {
+        var target = event.target;
+
+        if (target.matches('#btnProductosEliminar')) {
+          var idProductoEliminar = target.getAttribute('productoinfoid');
+          $.ajax({
+            url: '/EliminarProducto',
+            method: "POST",
+            data: {
+              id: idProductoEliminar
+            },
+            success: function success(response) {
+              console.log('response', response);
+
+              if (response === '200') {
+                location.reload();
+              } else {
+                alert('Se dio un problema en la solicitud de eliminación del producto');
+              }
+            }
+          });
+        }
+      }.bind(this));
+    }
+  };
+  EliminarProducto.init();
+})(); //Modificar Producto
+
+
+(function () {
+  var ModificarProducto = {
+    init: function init() {
+      this.addEvents();
+    },
+    addEvents: function addEvents() {
+      document.addEventListener('click', function (event) {
+        var target = event.target;
+
+        if (target.matches('#btnProductosModificar')) {
+          var idProductoModificar = target.getAttribute('productoinfoid');
+          var txtInpDetalleProducto = this.cacheElements.$inpName.val();
+          $.ajax({
+            url: '/modificarProducto',
+            method: "POST",
+            data: {
+              id: idProductoModificar,
+              text: txtInpDetalleProducto
+            },
+            success: function success(response) {
+              console.log('response', response);
+
+              if (response === '200') {
+                location.reload();
+              } else {
+                alert('Se dio un problema en la solicitud en la modificacion del producto');
+              }
+            }
+          });
+        }
+      }.bind(this));
+    },
+    cacheElements: {
+      $inpName: $('#txtInpDetalleProducto')
     }
   };
   ModificarProducto.init();
+})(); //Eliminar Factura
+
+
+(function () {
+  var EliminarFactura = {
+    init: function init() {
+      this.addEvents();
+    },
+    addEvents: function addEvents() {
+      document.addEventListener('click', function (event) {
+        var target = event.target;
+
+        if (target.matches('#btnFacturasEliminar')) {
+          var idFacturaEliminar = target.getAttribute('productoinfoid');
+          var InpEliminarFactura = this.cacheElements.$inpName.val();
+          $.ajax({
+            url: '/EliminarFactura',
+            method: "POST",
+            data: {
+              id: idFacturaEliminar,
+              text: InpEliminarFactura
+            },
+            success: function success(response) {
+              console.log('response', response);
+
+              if (response === '200') {
+                location.reload();
+              } else {
+                alert('Se dio un problema en la solicitud de eliminación de la factura');
+              }
+            }
+          });
+        }
+      }.bind(this));
+    },
+    cacheElements: {
+      $inpName: $('#txtInpEliminarFactura')
+    }
+  };
+  EliminarFactura.init();
+})(); //Modificar Factura
+
+
+(function () {
+  var ModificarFactura = {
+    init: function init() {
+      this.addEvents();
+    },
+    addEvents: function addEvents() {
+      document.addEventListener('click', function (event) {
+        var target = event.target;
+
+        if (target.matches('#btnModificarFactura')) {
+          var idFacturaModificar = target.getAttribute('productoinfoid');
+          var txtInpDetallefactura = this.cacheElements.$inpName.val();
+          $.ajax({
+            url: '/modificarFactura',
+            method: "POST",
+            data: {
+              id: idFacturaModificar,
+              text: txtInpDetallefactura
+            },
+            success: function success(response) {
+              console.log('response', response);
+
+              if (response === '200') {
+                location.reload();
+              } else {
+                alert('Se dio un problema en la solicitud en la modificacion de la factura');
+              }
+            }
+          });
+        }
+      }.bind(this));
+    },
+    cacheElements: {
+      $inpName: $('#txtInpDetallefactura')
+    }
+  };
+  ModificarFactura.init();
 })();
 
 /***/ }),

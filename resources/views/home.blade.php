@@ -20,4 +20,14 @@
         </div>
     </div>
 </div>
+
+<div>
+    <nav class="navbar navbar-dark bg-light">
+        <a class="btn btn-outline-primary my-2 my-sm-0" href="usuarios">Usuarios</a>
+        <a class="btn btn-outline-primary my-2 my-sm-0" href="productos">Productos</a>
+        <a class="btn btn-outline-primary my-2 my-sm-0" href="facturas">Facturas</a>
+        </nav>
+    
+</div>
 @endsection
+
